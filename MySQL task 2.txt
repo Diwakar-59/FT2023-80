@@ -1,0 +1,34 @@
+Query 1 -
+select first_name from employee_details inner join employee_salary on
+employee_details.employee_id = employee_salary.employee_id where
+employee_salary.employee_salary >'50k';
+
+Query 2 -
+select last_name from employee_details where graduation_percentile > '70%';
+
+Query 3 -
+select employee_code_name from employee_code inner join employee_salary on
+employee_code.employee_code = employee_salary.employee_code inner join employee_details on
+employee_salary.employee_id = employee_details.employee_id where graduation_percentile <
+'70%';
+
+Query 4 -
+select first_name, last_name from employee_details inner join employee_salary on
+employee_details.employee_id = employee_salary.employee_id inner join employee_code on
+employee_code.employee_code = employee_salary.employee_code where employee_domain not
+like 'Java';
+
+Query 5 -
+select sum(employee_salary), employee_domain from employee_salary inner j
+oin employee_code on employee_salary.employee_code = employee_code.employee_code
+group by employee_domain;
+
+Query 6 -
+select sum(employee_salary), employee_domain from employee_salary inner join employee_code
+on employee_salary.employee_code = employee_code.employee_code where employee_salary >
+'30k' group by employee_domain;
+
+
+Query 7 -
+select employee_id from employee_salary where employee_code is null;
+

@@ -1,0 +1,51 @@
+Database Name – IPL.
+No. of Tables – 3.
+
+Table Details :-
+
+Table 1 – Fixtures.
+Table Description:
+
+match_ID     | int    | NOT NULL | PRIMARY KEY | auto_increment
+date_of_match | date | NOT NULL
+team_1     | varchar(40) | NOT NULL
+team_2     | varchar(40) | NOT NULL
+venue     | varchar(40) | NOT NULL
+
+
+Table 2 – Teams.
+Table Description:
+
+Name | varchar(30) | NOT NULL | PRIMARY KEY
+Captain | varchar(30) | NOT NULL
+
+
+Tables 3 – match_result.
+Table Description:
+
+match_ID      | int     | NOT NULL | MUL
+captain_of_team1 | varchar(30) | NOT NULL
+captain_of_team2 | varchar(30) | NOT NULL
+toss_won_by | varchar(30) | NOT NULL
+match_won_by | varchar(30) | NOT NULL
+
+
+
+Description :-
+
+Teams – Contains the names of all the participating teams along with their captain names.
+Fixtures – Contains the match fixing details along with the details regarding the venues and date of
+           match.
+match_result – Contains the outcomes of the matches.
+
+Reason :- The teams fixtures table holds the fixtures which are pre-decided and has a primary key
+match_id. The primary key, match_id acts as a foreign key for the table match_result and we can get
+the result of a particular match and other details regarding the match using the match id.
+
+
+Example Query : select match_won_ by, Captain from match_result inner join Teams on
+match_result.match_won_by = Teams.Name;
+
+The above query provides us with the name of the team who won along with its captain name by
+joining the two tables, match_result and Teams.
+
